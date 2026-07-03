@@ -647,7 +647,8 @@ async function submitMediatorForm(event) {
     if (data.ok) {
       form.reset();
       loadCountries();
-      setFormStatus(status, data.message || "Submitted successfully. Our team will contact you shortly.", "success");
+      const backendNote = formatBackendSaveNote(data);
+      setFormStatus(status, (data.message || "Submitted successfully. Our team will contact you shortly.") + backendNote, "success");
     } else {
       setFormStatus(status, data.message || "Submission failed. Please try again.", "error");
     }
@@ -975,7 +976,8 @@ async function runBackendTests() {
     ["Countries", () => apiGet("countries")],
     ["Public Banners", () => apiGet("publicBanners")],
     ["Public Properties", () => apiGet("publicProperties")],
-    ["Submit Route", () => apiPost({ formType: "contact", name: "Backend Test", phone: "0000000000", email: "", country: "IN", location: "Test", purpose: "Backend Test", message: "Testing submit route from backend-test page" })]
+    ["Submit Route", () => apiPost({ formType: "contact", name: "Backend Test", phone: "0000000000", email: "", country: "IN", location: "Test", purpose: "Backend Test", message: "Testing submit route from backend-test page" })],
+    ["Debug Counts", () => apiGet("debugCounts")]
   ];
 
   results.innerHTML = "";
@@ -983,12 +985,24 @@ async function runBackendTests() {
   for (const [name, fn] of tests) {
     try {
       const data = await fn();
-      results.innerHTML += `<div class="test-ok">✓ ${safe(name)}: ${safe(JSON.stringify(data).slice(0, 220))}</div>`;
+      results.innerHTML += `<div class="test-ok">✓ ${safe(name)}: ${safe(JSON.stringify(data).slice(0, 500))}</div>`;
     } catch (err) {
       results.innerHTML += `<div class="test-error">✗ ${safe(name)}: ${safe(err.message)}</div>`;
     }
   }
 }
+
+function formatBackendSaveNote(data) {
+  if (!data || !data.backend) return "";
+
+  const b = data.backend;
+  if (!b.saved) {
+    return " Backend connection worked, but no saved row was reported. Check the Apps Script deployment and sheet permissions.";
+  }
+
+  return ` Saved to backend: ${b.targetSheet}, row ${b.targetRow}.`;
+}
+
 
 /* Helpers */
 function setFormStatus(el, message, type) {
