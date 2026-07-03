@@ -173,9 +173,28 @@ async function apiPost(payload) {
     };
   }
 
-  const response = await fetch(base, {
-    method: "POST",
-    body: new URLSearchParams(payload),
+  // Apps Script sometimes returns a Google HTML page for cross-origin POST.
+  // This package uses a safer GET submit route: ?action=submit&formType=...
+  const url = new URL(base);
+  url.searchParams.set("action", "submit");
+  url.searchParams.set("ts", Date.now().toString());
+
+  Object.keys(payload || {}).forEach(key => {
+    if (payload[key] !== undefined && payload[key] !== null) {
+      url.searchParams.set(key, String(payload[key]));
+    }
+  });
+
+  if (url.toString().length > 7500) {
+    return {
+      ok: false,
+      message: "Submission data is too long. Please shorten description/photo URL fields and try again."
+    };
+  }
+
+  const response = await fetch(url.toString(), {
+    method: "GET",
+    cache: "no-store",
     redirect: "follow"
   });
 
@@ -184,9 +203,13 @@ async function apiPost(payload) {
   try {
     return JSON.parse(text);
   } catch (err) {
-    throw new Error("Backend returned non-JSON response. Check Web App deployment. Response: " + text.slice(0, 160));
+    const cleanText = text.replace(/\s+/g, " ").slice(0, 180);
+    throw new Error(
+      "Backend returned a Google HTML/error page instead of JSON. Redeploy Apps Script as Web App with Execute as: Me and Who has access: Anyone. Response: " + cleanText
+    );
   }
 }
+
 
 function toggleMenu() {
   const menu = document.getElementById("mainMenu");
@@ -951,7 +974,8 @@ async function runBackendTests() {
     ["Ping", () => apiGet("ping")],
     ["Countries", () => apiGet("countries")],
     ["Public Banners", () => apiGet("publicBanners")],
-    ["Public Properties", () => apiGet("publicProperties")]
+    ["Public Properties", () => apiGet("publicProperties")],
+    ["Submit Route", () => apiPost({ formType: "contact", name: "Backend Test", phone: "0000000000", email: "", country: "IN", location: "Test", purpose: "Backend Test", message: "Testing submit route from backend-test page" })]
   ];
 
   results.innerHTML = "";
