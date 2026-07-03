@@ -988,6 +988,7 @@ let deferredPWAInstallPrompt = null;
 
 function initPWAInstall() {
   registerServiceWorker();
+  if (isStandaloneMode()) document.body.classList.add("pwa-standalone");
   const installBtn = document.getElementById("pwaInstallBtn");
   if (installBtn) installBtn.classList.add("visible");
 

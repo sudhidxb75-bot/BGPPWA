@@ -978,3 +978,577 @@ body{
     font-size:16px;
   }
 }
+
+
+/* V1.3.9 top utility bar + aligned header menu + app bottom menu */
+.site-header{
+  background:#fff;
+  border-bottom:1px solid var(--line);
+}
+
+.top-utility-bar{
+  background:#f8fafc;
+  border-bottom:1px solid var(--line);
+}
+
+.top-utility-wrap{
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+}
+
+.top-utility-wrap .top-country-picker{
+  margin-left:0;
+  order:initial;
+}
+
+.top-sell-property-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:38px;
+  padding:0 15px;
+  border-radius:999px;
+  background:var(--accent);
+  color:#1d2939;
+  border:1px solid rgba(214,168,79,.55);
+  font-size:13px;
+  font-weight:900;
+  white-space:nowrap;
+  box-shadow:0 8px 18px rgba(214,168,79,.18);
+}
+
+.top-sell-property-btn:hover{
+  transform:translateY(-1px);
+}
+
+.nav-wrap.screenshot-header{
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.screenshot-header .brand{
+  min-width:280px;
+  flex:0 0 auto;
+}
+
+.screenshot-header .brand-mark{
+  width:52px;
+  height:52px;
+  font-size:19px;
+}
+
+.screenshot-header .brand strong{
+  font-size:21px;
+}
+
+.screenshot-header .brand small{
+  font-size:12px;
+}
+
+.screenshot-header .main-nav{
+  flex:1 1 auto;
+  justify-content:flex-end;
+  gap:14px;
+  font-size:14px;
+  white-space:nowrap;
+}
+
+.screenshot-header .customer-auth-btn{
+  flex:0 0 auto;
+}
+
+.install-app-btn{
+  display:inline-flex !important;
+  height:38px;
+  padding:0 14px;
+  font-size:13px;
+  background:#fff;
+}
+
+.top-country-picker{
+  height:38px;
+}
+
+.top-country-select{
+  height:32px;
+}
+
+.bottom-menu{
+  display:grid !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+
+body.pwa-standalone .bottom-menu{
+  display:grid !important;
+}
+
+@media (display-mode: standalone){
+  .bottom-menu{
+    display:grid !important;
+    visibility:visible !important;
+  }
+}
+
+@media (max-width: 1180px){
+  .screenshot-header .main-nav{
+    gap:10px;
+    font-size:13px;
+  }
+
+  .screenshot-header .brand{
+    min-width:245px;
+  }
+
+  .screenshot-header .brand strong{
+    font-size:19px;
+  }
+}
+
+@media (max-width: 1060px){
+  .top-utility-wrap{
+    justify-content:flex-start;
+    gap:8px;
+    overflow-x:auto;
+    padding-top:6px;
+    padding-bottom:6px;
+  }
+
+  .top-utility-wrap::-webkit-scrollbar{
+    display:none;
+  }
+
+  .nav-wrap.screenshot-header{
+    min-height:74px;
+  }
+
+  .menu-toggle{
+    display:inline-flex;
+    order:3;
+    margin-left:auto;
+  }
+
+  .screenshot-header .main-nav{
+    display:none;
+    position:absolute;
+    left:4%;
+    right:4%;
+    top:123px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    padding:14px;
+    flex-direction:column;
+    align-items:stretch;
+    white-space:normal;
+    font-size:14px;
+    gap:0;
+    z-index:70;
+  }
+
+  .screenshot-header .main-nav.open{
+    display:flex;
+  }
+
+  .customer-auth-btn{
+    order:2;
+    margin-left:auto;
+  }
+
+  .customer-auth-btn span{
+    display:inline;
+  }
+
+  .install-app-btn span{
+    display:inline;
+  }
+}
+
+@media (max-width: 740px){
+  .top-utility-wrap{
+    min-height:44px;
+  }
+
+  .top-sell-property-btn{
+    height:34px;
+    padding:0 12px;
+    font-size:12px;
+  }
+
+  .install-app-btn{
+    width:auto;
+    height:34px;
+    padding:0 12px;
+    border-radius:999px;
+  }
+
+  .install-app-btn span{
+    display:inline;
+    font-size:12px;
+  }
+
+  .install-app-btn svg{
+    width:16px;
+    height:16px;
+  }
+
+  .top-country-picker{
+    height:34px;
+    max-width:none;
+  }
+
+  .top-country-select{
+    width:102px;
+    min-width:102px;
+    font-size:12px;
+  }
+
+  .screenshot-header .brand small{
+    display:none;
+  }
+
+  .screenshot-header .brand{
+    min-width:0;
+  }
+
+  .screenshot-header .brand strong{
+    font-size:17px;
+  }
+
+  .customer-auth-btn{
+    width:auto;
+    height:36px;
+    padding:0 10px;
+    border-radius:999px;
+  }
+
+  .customer-auth-btn span{
+    display:inline;
+    font-size:11px;
+  }
+
+  .customer-auth-btn svg{
+    width:16px;
+    height:16px;
+  }
+
+  .screenshot-header .main-nav{
+    top:119px;
+  }
+}
+
+@media (max-width: 520px){
+  .top-utility-wrap{
+    justify-content:flex-start;
+  }
+
+  .top-sell-property-btn{
+    min-width:128px;
+  }
+
+  .install-app-btn{
+    min-width:106px;
+  }
+
+  .customer-auth-btn span{
+    display:none;
+  }
+
+  .customer-auth-btn{
+    width:36px;
+    padding:0;
+    border-radius:50%;
+  }
+}
+
+@media (max-width: 380px){
+  .screenshot-header .brand strong{
+    font-size:15px;
+  }
+
+  .top-country-select{
+    width:86px;
+    min-width:86px;
+  }
+
+  .top-sell-property-btn{
+    min-width:118px;
+    font-size:11px;
+  }
+
+  .install-app-btn{
+    min-width:96px;
+  }
+}
+
+
+/* V1.4.0 logo/company moved to top + login icon only */
+.brand-top-bar{
+  background:#fff;
+  border-bottom:1px solid var(--line);
+}
+
+.brand-top-wrap{
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+
+.top-brand{
+  flex:0 1 auto;
+  min-width:280px;
+}
+
+.top-brand .brand-mark{
+  width:54px;
+  height:54px;
+  font-size:20px;
+}
+
+.top-brand strong{
+  font-size:22px;
+  line-height:1.1;
+}
+
+.top-brand small{
+  font-size:12px;
+}
+
+.top-action-group{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  flex:0 0 auto;
+}
+
+.customer-login-icon-only{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:var(--primary);
+  color:#fff;
+  border:1px solid var(--primary);
+  box-shadow:0 8px 20px rgba(22,61,92,.18);
+  flex:0 0 auto;
+}
+
+.customer-login-icon-only svg{
+  width:19px;
+  height:19px;
+  fill:currentColor;
+}
+
+.customer-login-icon-only:hover{
+  transform:translateY(-1px);
+}
+
+.menu-only-header{
+  min-height:50px !important;
+  justify-content:center !important;
+  border-top:1px solid #f4f6f8;
+}
+
+.menu-only-header .main-nav{
+  width:100%;
+  justify-content:center;
+  gap:22px;
+  font-size:14px;
+}
+
+.menu-only-header .menu-toggle{
+  margin-left:auto;
+}
+
+.screenshot-header.menu-only-header .brand,
+.screenshot-header.menu-only-header .customer-auth-btn,
+.screenshot-header.menu-only-header .customer-login-icon-only{
+  display:none;
+}
+
+@media (max-width: 1180px){
+  .menu-only-header .main-nav{
+    gap:14px;
+    font-size:13px;
+  }
+
+  .top-brand{
+    min-width:240px;
+  }
+
+  .top-brand strong{
+    font-size:20px;
+  }
+}
+
+@media (max-width: 1060px){
+  .brand-top-wrap{
+    min-height:66px;
+  }
+
+  .top-action-group{
+    gap:8px;
+    overflow-x:auto;
+    padding:4px 0;
+  }
+
+  .top-action-group::-webkit-scrollbar{
+    display:none;
+  }
+
+  .menu-only-header{
+    min-height:46px !important;
+  }
+
+  .menu-only-header .menu-toggle{
+    display:inline-flex;
+    margin-left:auto;
+  }
+
+  .menu-only-header .main-nav{
+    display:none;
+    position:absolute;
+    left:4%;
+    right:4%;
+    top:119px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    padding:14px;
+    flex-direction:column;
+    align-items:stretch;
+    white-space:normal;
+    font-size:14px;
+    gap:0;
+    z-index:70;
+  }
+
+  .menu-only-header .main-nav.open{
+    display:flex;
+  }
+}
+
+@media (max-width: 760px){
+  .brand-top-wrap{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:8px;
+    padding-top:8px;
+    padding-bottom:8px;
+  }
+
+  .top-brand{
+    min-width:0;
+  }
+
+  .top-brand .brand-mark{
+    width:46px;
+    height:46px;
+    font-size:18px;
+  }
+
+  .top-brand strong{
+    font-size:18px;
+  }
+
+  .top-brand small{
+    display:none;
+  }
+
+  .top-action-group{
+    justify-content:flex-start;
+    width:100%;
+  }
+
+  .customer-login-icon-only{
+    width:36px;
+    height:36px;
+  }
+
+  .customer-login-icon-only svg{
+    width:17px;
+    height:17px;
+  }
+
+  .menu-only-header .main-nav{
+    top:132px;
+  }
+}
+
+@media (max-width: 520px){
+  .top-action-group{
+    gap:6px;
+  }
+
+  .top-sell-property-btn{
+    min-width:116px;
+    padding:0 10px;
+    font-size:11px;
+  }
+
+  .install-app-btn{
+    min-width:90px;
+    padding:0 10px;
+  }
+
+  .install-app-btn span{
+    font-size:11px;
+  }
+
+  .top-country-select{
+    width:80px;
+    min-width:80px;
+  }
+
+  .top-country-picker{
+    padding:0 6px;
+  }
+
+  .menu-only-header .main-nav{
+    top:130px;
+  }
+}
+
+@media (max-width: 380px){
+  .top-brand strong{
+    font-size:16px;
+  }
+
+  .top-brand .brand-mark{
+    width:42px;
+    height:42px;
+    font-size:16px;
+  }
+
+  .top-action-group{
+    gap:5px;
+  }
+
+  .top-country-select{
+    width:70px;
+    min-width:70px;
+    font-size:10px;
+  }
+
+  .top-sell-property-btn{
+    min-width:108px;
+    font-size:10px;
+  }
+
+  .install-app-btn{
+    min-width:82px;
+  }
+}
