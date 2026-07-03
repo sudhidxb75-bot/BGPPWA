@@ -408,3 +408,37 @@ After updating:
 4. Upload all website files.
 5. Open backend-test.html and run tests. Submit Route should show green.
 6. Hard refresh. If installed app still shows old behavior, reinstall the PWA.
+
+
+
+V1.4.2 backend save verification
+--------------------------------
+This version confirms exactly where backend data is saved.
+
+Added:
+- Every successful public form submission now returns:
+  - spreadsheet name
+  - spreadsheet URL
+  - target sheet name
+  - target row number
+  - saved record ID
+- Form success message now shows:
+  Saved to backend: Sheet Name, row number.
+- backend-test.html includes:
+  - Submit Route test
+  - Debug Counts test
+- Debug Counts returns current data row counts for:
+  Contact Enquiries, Enquiries, Buyer Requirements, Builder Enquiries, Sellers, Properties, Customers, Referrals, Activity Log.
+- Apps Script now repairs blank/missing sheet headers automatically.
+- Service worker cache changed to bgp-pwa-v1-4-2.
+
+Important:
+If Submit Route is green but you do not see records in your expected sheet, check the returned targetSheet and spreadsheetUrl. You may be checking a different Google Sheet, or the form may be saving to Contact Enquiries instead of Enquiries depending on the page/form used.
+
+After updating:
+1. Replace Apps Script Code.gs.
+2. Deploy as a new Web App version.
+3. Upload all website files.
+4. Open backend-test.html.
+5. Run tests.
+6. Check the Submit Route response: targetSheet and targetRow.
