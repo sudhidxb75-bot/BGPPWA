@@ -351,3 +351,33 @@ Added:
 - Install App option is now always shown as a visible button.
 - Customer Login / Signup is now shown as a visible button in the header.
 - On smaller mobile screens, Install App and Login / Signup buttons become compact icons to save space.
+
+
+
+V1.3.9 layout update
+--------------------
+Updated layout as requested:
+
+1. Country selector moved to the top utility bar.
+2. Sell Your Property button placed next to the country selector.
+3. Install App remains a clear visible button in the top utility bar.
+4. Company name, header menu, and Login / Signup button are kept together in the main header row.
+5. Bottom menu is forced visible in normal browser mode and PWA standalone app mode.
+6. Service worker cache name updated to bgp-pwa-v1-3-9 so the installed app refreshes after upload.
+
+After uploading:
+- Open the site once in browser and hard refresh.
+- For already installed PWA, close and reopen the app.
+- If old layout still appears, clear site data or reinstall the PWA because service workers may cache older files.
+
+
+
+V1.4.0 header layout update
+---------------------------
+Updated as requested:
+- Company logo and company name moved to the top row.
+- Country selector, Sell Your Property, Install App, and login icon are in the top row.
+- Customer login/signup is shown as icon only.
+- Main menu is kept in a separate header row below the company top row.
+- Bottom menu remains visible in website and PWA app mode.
+- Service worker cache changed to bgp-pwa-v1-4-0 to refresh installed app layout.

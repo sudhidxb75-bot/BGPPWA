@@ -1,4 +1,4 @@
-const CACHE_NAME = "bgp-pwa-v1-3-5";
+const CACHE_NAME = "bgp-pwa-v1-4-0";
 const APP_SHELL = [
   "./",
   "./index.html",

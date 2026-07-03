@@ -18,15 +18,43 @@
 </head>
 <body>
 <header class="site-header">
-  <div class="container nav-wrap screenshot-header">
-    <a class="brand" href="index.html" aria-label="Bdeals Global Properties Home">
-      <span class="brand-mark">BG</span>
-      <span>
-        <strong>Bdeals Global Properties</strong>
-        <small>Verified Properties. Genuine Buyers. Secure Deals.</small>
-      </span>
-    </a>
+  <div class="top-utility-bar brand-top-bar">
+    <div class="container top-utility-wrap brand-top-wrap">
+      <a class="brand top-brand" href="index.html" aria-label="Bdeals Global Properties Home">
+        <span class="brand-mark">BG</span>
+        <span>
+          <strong>Bdeals Global Properties</strong>
+          <small>Verified Properties. Genuine Buyers. Secure Deals.</small>
+        </span>
+      </a>
 
+      <div class="top-action-group">
+        <div class="top-country-picker" title="Select Country">
+          <span class="top-country-icon">🌐</span>
+          <select id="topCountrySelect" class="country-select top-country-select" onchange="handleTopCountryChange(this.value)" aria-label="Select country">
+            <option value="">Country</option>
+          </select>
+        </div>
+
+        <a class="top-sell-property-btn" href="sell-property.html">Sell Your Property</a>
+
+        <button id="pwaInstallBtn" class="install-app-btn visible" type="button" onclick="installPWA()" title="Install App">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1ZM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z"></path>
+          </svg>
+          <span>Install App</span>
+        </button>
+
+        <a class="login-icon-link customer-login-icon-only" href="customer-login.html" aria-label="Customer Login / Signup" title="Customer Login / Signup">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5Zm0 2c-4.42 0-8 2.02-8 4.5V21h16v-2.5c0-2.48-3.58-4.5-8-4.5Z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container nav-wrap screenshot-header menu-only-header">
     <button class="menu-toggle" aria-label="Open menu" onclick="toggleMenu()">☰</button>
 
     <nav id="mainMenu" class="main-nav">
@@ -39,28 +67,6 @@
       <a href="services.html">Services</a>
       <a href="contact.html">Contact</a>
     </nav>
-
-
-
-    <div class="top-country-picker" title="Select Country">
-      <span class="top-country-icon">🌐</span>
-      <select id="topCountrySelect" class="country-select top-country-select" onchange="handleTopCountryChange(this.value)" aria-label="Select country">
-        <option value="">Country</option>
-      </select>
-    </div>
-
-    <button id="pwaInstallBtn" class="install-app-btn" type="button" onclick="installPWA()" title="Install App">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 3a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1ZM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z"></path>
-      </svg>
-      <span>Install App</span>
-    </button>
-    <a class="customer-auth-btn" href="customer-login.html" title="Customer Login / Signup">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5Zm0 2c-4.42 0-8 2.02-8 4.5V21h16v-2.5c0-2.48-3.58-4.5-8-4.5Z"></path>
-      </svg>
-      <span>Login / Signup</span>
-    </a>
   </div>
 </header>
 <main>
