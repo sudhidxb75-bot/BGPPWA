@@ -339,3 +339,15 @@ The sync is handled by:
 - syncSelectedCountryToSearch()
 - initCountrySyncHandlers()
 - handleTopCountryChange()
+
+
+
+V1.3.8 top and bottom menu update
+---------------------------------
+Added:
+- Top menu retained.
+- New bottom menu added for quick navigation.
+- Bottom menu includes Home, Buy, Sell, Requirement, and Login.
+- Install App option is now always shown as a visible button.
+- Customer Login / Signup is now shown as a visible button in the header.
+- On smaller mobile screens, Install App and Login / Signup buttons become compact icons to save space.
