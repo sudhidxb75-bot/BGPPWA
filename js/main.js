@@ -988,6 +988,8 @@ let deferredPWAInstallPrompt = null;
 
 function initPWAInstall() {
   registerServiceWorker();
+  const installBtn = document.getElementById("pwaInstallBtn");
+  if (installBtn) installBtn.classList.add("visible");
 
   window.addEventListener("beforeinstallprompt", event => {
     event.preventDefault();
@@ -1029,7 +1031,7 @@ function showInstallButton() {
 
 function hideInstallButton() {
   const btn = document.getElementById("pwaInstallBtn");
-  if (btn) btn.classList.remove("visible");
+  if (btn) btn.classList.add("visible");
 }
 
 async function installPWA() {
