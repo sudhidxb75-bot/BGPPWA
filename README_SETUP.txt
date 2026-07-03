@@ -381,3 +381,30 @@ Updated as requested:
 - Main menu is kept in a separate header row below the company top row.
 - Bottom menu remains visible in website and PWA app mode.
 - Service worker cache changed to bgp-pwa-v1-4-0 to refresh installed app layout.
+
+
+
+V1.4.1 form submission backend fix
+----------------------------------
+Fixed the issue where forms showed:
+"Backend returned non-JSON response..."
+
+Reason:
+- Backend GET tests were working.
+- Some form submissions through POST were receiving a Google HTML page instead of JSON.
+
+Fix:
+- Added Apps Script GET submit route:
+  action=submit
+- Frontend form submissions now use the safer GET route.
+- Existing doPost route is still kept as backup.
+- backend-test.html now also tests the Submit Route.
+- Service worker cache changed to bgp-pwa-v1-4-1.
+
+After updating:
+1. Replace Apps Script Code.gs with the new Code.gs.
+2. Deploy > Manage deployments > Edit > New version > Deploy.
+3. Copy the /exec Web App URL into js/config.js if it changed.
+4. Upload all website files.
+5. Open backend-test.html and run tests. Submit Route should show green.
+6. Hard refresh. If installed app still shows old behavior, reinstall the PWA.
